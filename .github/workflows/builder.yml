@@ -1,4 +1,4 @@
-name: BJNFNE's CaptureDetector CI
+name: CaptureDetector CI
 
 on:
   push:
@@ -41,7 +41,6 @@ jobs:
           tag_name: Beta
           draft: false
           prerelease: true
-          # Wichtig: Der Pfad muss nun den Ordnernamen enthalten
           files: CaptureDetector/CaptureDetector-Linux.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -54,7 +53,6 @@ jobs:
         run: git clone https://github.com/AsoiX-exe/CaptureDetector.git
 
       - name: Install CMake
-        # Installiert CMake über den Windows-Paketmanager Chocolatey
         run: choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
 
       - name: Configure CMake
@@ -88,7 +86,6 @@ jobs:
         run: git clone https://github.com/AsoiX-exe/CaptureDetector.git
 
       - name: Install CMake
-        # Installiert CMake über Homebrew
         run: brew install cmake
 
       - name: Configure CMake
